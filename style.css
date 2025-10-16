@@ -83,13 +83,10 @@ h1 {
     opacity: 1;
 }
 
-.controls-container {
-    flex: 1;
-    min-width: 300px;
-    background: white;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+.controls-container p {
+    margin-bottom: 15px;
+    color: #666;
+    font-style: italic;
 }
 
 .district-controls {
