@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belize Districts Interactive Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Belize Districts</h1>
+            <p class="subtitle">Toggle districts on/off to see them highlighted on the map</p>
+        </header>
+        
+        <div class="content">
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <img src="Country.png" alt="Map of Belize" class="belize-map" id="mainMap">
+                    
+                    <!-- District overlays -->
+                    <img src="Cayo.png" alt="Cayo District" class="district-overlay" id="overlayCayo">
+                    <img src="Orange_Walk.png" alt="Orange Walk District" class="district-overlay" id="overlayOrangeWalk">
+                    <img src="Toledo.png" alt="Toledo District" class="district-overlay" id="overlayToledo">
+                    <img src="Corozal.png" alt="Corozal District" class="district-overlay" id="overlayCorozal">
+                    <img src="Stann_creek.png" alt="Stann Creek District" class="district-overlay" id="overlayStannCreek">
+                    <img src="Belize.png" alt="Belize District" class="district-overlay" id="overlayBelize">
+                </div>
+            </div>
+            
+            <div class="controls-container">
+                <h2>District Controls</h2>
+                <p>Click toggle buttons to show/hide districts on the map</p>
+                
+                <div class="district-controls">
+                    <div class="district-toggle" onclick="toggleDistrict('Cayo')">
+                        <img id="toggleCayo" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
+                        <span class="district-name">Cayo District</span>
+                    </div>
+                    
+                    <div class="district-toggle" onclick="toggleDistrict('OrangeWalk')">
+                        <img id="toggleOrangeWalk" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
+                        <span class="district-name">District</span>
+                    </div>
+                    
+                    <div class="district-toggle" onclick="toggleDistrict('Toledo')">
+                        <img id="toggleToledo" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
+                        <span class="district-name">Toledo District</span>
+                    </div>
+                    
+                    <div class="district-toggle" onclick="toggleDistrict('Corozal')">
+                        <img id="toggleCorozal" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
+                        <span class="district-name">Corozal District</span>
+                    </div>
+                    
+                    <div class="district-toggle" onclick="toggleDistrict('StannCreek')">
+                        <img id="toggleStannCreek" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
+                        <span class="district-name">Stann Creek District</span>
+                    </div>
+                    
+                    <div class="district-toggle" onclick="toggleDistrict('Belize')">
+                        <img id="toggleBelize" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
+                        <span class="district-name">Belize District</span>
+                    </div>
+                </div>
+                
+                <button onclick="resetAllDistricts()" class="reset-button">
+                    Reset All Districts
+                </button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Belize Districts Interactive Map | Toggle Overlay System</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
