@@ -1,69 +1,106 @@
-// District status variables
-var cayoIsOn = false;
-var orangeWalkIsOn = false;
-var toledoIsOn = false;
-var corozalIsOn = false;
-var stannCreekIsOn = false;
-var belizeIsOn = false;
+// Current active district
+var activeDistrict = null;
 
-// Toggle function for districts
+// Toggle function for districts - only one can be active at a time
 function toggleDistrict(districtName) {
-    // Update the status variable and toggle image
-    switch(districtName) {
-        case 'Cayo':
-            cayoIsOn = !cayoIsOn;
-            toggleImage('toggleCayo');
-            toggleOverlay('overlayCayo', cayoIsOn);
-            updateToggleUI('Cayo', cayoIsOn);
-            break;
-        case 'OrangeWalk':
-            orangeWalkIsOn = !orangeWalkIsOn;
-            toggleImage('toggleOrangeWalk');
-            toggleOverlay('overlayOrangeWalk', orangeWalkIsOn);
-            updateToggleUI('OrangeWalk', orangeWalkIsOn);
-            break;
-        case 'Toledo':
-            toledoIsOn = !toledoIsOn;
-            toggleImage('toggleToledo');
-            toggleOverlay('overlayToledo', toledoIsOn);
-            updateToggleUI('Toledo', toledoIsOn);
-            break;
-        case 'Corozal':
-            corozalIsOn = !corozalIsOn;
-            toggleImage('toggleCorozal');
-            toggleOverlay('overlayCorozal', corozalIsOn);
-            updateToggleUI('Corozal', corozalIsOn);
-            break;
-        case 'StannCreek':
-            stannCreekIsOn = !stannCreekIsOn;
-            toggleImage('toggleStannCreek');
-            toggleOverlay('overlayStannCreek', stannCreekIsOn);
-            updateToggleUI('StannCreek', stannCreekIsOn);
-            break;
-        case 'Belize':
-            belizeIsOn = !belizeIsOn;
-            toggleImage('toggleBelize');
-            toggleOverlay('overlayBelize', belizeIsOn);
-            updateToggleUI('Belize', belizeIsOn);
-            break;
+    // If clicking the same district that's already active, turn it off
+    if (activeDistrict === districtName) {
+        deactivateDistrict(districtName);
+        activeDistrict = null;
+    } else {
+        // Deactivate the currently active district (if any)
+        if (activeDistrict) {
+            deactivateDistrict(activeDistrict);
+        }
+        
+        // Activate the new district
+        activateDistrict(districtName);
+        activeDistrict = districtName;
     }
     
     // Log current status
-    console.log('Cayo:', cayoIsOn);
-    console.log('Orange Walk:', orangeWalkIsOn);
-    console.log('Toledo:', toledoIsOn);
-    console.log('Corozal:', corozalIsOn);
-    console.log('Stann Creek:', stannCreekIsOn);
-    console.log('Belize:', belizeIsOn);
+    console.log('Active district:', activeDistrict);
 }
 
-// Toggle image function (same as your example)
-function toggleImage(imageId) {
+// Activate a district
+function activateDistrict(districtName) {
+    switch(districtName) {
+        case 'Cayo':
+            toggleImage('toggleCayo', true);
+            toggleOverlay('overlayCayo', true);
+            updateToggleUI('Cayo', true);
+            break;
+        case 'OrangeWalk':
+            toggleImage('toggleOrangeWalk', true);
+            toggleOverlay('overlayOrangeWalk', true);
+            updateToggleUI('OrangeWalk', true);
+            break;
+        case 'Toledo':
+            toggleImage('toggleToledo', true);
+            toggleOverlay('overlayToledo', true);
+            updateToggleUI('Toledo', true);
+            break;
+        case 'Corozal':
+            toggleImage('toggleCorozal', true);
+            toggleOverlay('overlayCorozal', true);
+            updateToggleUI('Corozal', true);
+            break;
+        case 'StannCreek':
+            toggleImage('toggleStannCreek', true);
+            toggleOverlay('overlayStannCreek', true);
+            updateToggleUI('StannCreek', true);
+            break;
+        case 'Belize':
+            toggleImage('toggleBelize', true);
+            toggleOverlay('overlayBelize', true);
+            updateToggleUI('Belize', true);
+            break;
+    }
+}
+
+// Deactivate a district
+function deactivateDistrict(districtName) {
+    switch(districtName) {
+        case 'Cayo':
+            toggleImage('toggleCayo', false);
+            toggleOverlay('overlayCayo', false);
+            updateToggleUI('Cayo', false);
+            break;
+        case 'OrangeWalk':
+            toggleImage('toggleOrangeWalk', false);
+            toggleOverlay('overlayOrangeWalk', false);
+            updateToggleUI('OrangeWalk', false);
+            break;
+        case 'Toledo':
+            toggleImage('toggleToledo', false);
+            toggleOverlay('overlayToledo', false);
+            updateToggleUI('Toledo', false);
+            break;
+        case 'Corozal':
+            toggleImage('toggleCorozal', false);
+            toggleOverlay('overlayCorozal', false);
+            updateToggleUI('Corozal', false);
+            break;
+        case 'StannCreek':
+            toggleImage('toggleStannCreek', false);
+            toggleOverlay('overlayStannCreek', false);
+            updateToggleUI('StannCreek', false);
+            break;
+        case 'Belize':
+            toggleImage('toggleBelize', false);
+            toggleOverlay('overlayBelize', false);
+            updateToggleUI('Belize', false);
+            break;
+    }
+}
+
+// Toggle image function (modified to accept state)
+function toggleImage(imageId, turnOn) {
     var imgOff = "https://www.iconsdb.com/icons/preview/red/button-off-xxl.png";
     var imgOn = "https://www.iconsdb.com/icons/preview/green/button-on-xxl.png";
     
     var imgElement = document.getElementById(imageId);
-    imgElement.src = (imgElement.src === imgOff) ? imgOn : imgOff;
+    imgElement.src = turnOn ? imgOn : imgOff;
 }
 
 // Toggle overlay visibility
@@ -89,41 +126,11 @@ function updateToggleUI(districtName, isActive) {
 
 // Reset all districts to off state
 function resetAllDistricts() {
-    // Reset all status variables
-    cayoIsOn = false;
-    orangeWalkIsOn = false;
-    toledoIsOn = false;
-    corozalIsOn = false;
-    stannCreekIsOn = false;
-    belizeIsOn = false;
-    
-    // Reset all toggle buttons to red
-    var toggleButtons = [
-        'toggleCayo', 'toggleOrangeWalk', 'toggleToledo', 
-        'toggleCorozal', 'toggleStannCreek', 'toggleBelize'
-    ];
-    
-    var redButton = "https://www.iconsdb.com/icons/preview/red/button-off-xxl.png";
-    
-    toggleButtons.forEach(buttonId => {
-        document.getElementById(buttonId).src = redButton;
-    });
-    
-    // Hide all overlays
-    var overlays = [
-        'overlayCayo', 'overlayOrangeWalk', 'overlayToledo',
-        'overlayCorozal', 'overlayStannCreek', 'overlayBelize'
-    ];
-    
-    overlays.forEach(overlayId => {
-        document.getElementById(overlayId).classList.remove('active');
-    });
-    
-    // Remove active class from all toggle elements
-    var toggleElements = document.querySelectorAll('.district-toggle');
-    toggleElements.forEach(element => {
-        element.classList.remove('active');
-    });
+    // Deactivate current district if any
+    if (activeDistrict) {
+        deactivateDistrict(activeDistrict);
+        activeDistrict = null;
+    }
     
     console.log('All districts reset');
 }
@@ -132,5 +139,5 @@ function resetAllDistricts() {
 document.addEventListener('DOMContentLoaded', function() {
     // Ensure all overlays are hidden on page load
     resetAllDistricts();
-    console.log('Belize Districts Interactive Map Loaded');
+    console.log('Belize Districts Interactive Map Loaded - Switch Mode');
 });
