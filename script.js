@@ -96,8 +96,8 @@ function deactivateDistrict(districtName) {
 
 // Toggle image function (modified to accept state)
 function toggleImage(imageId, turnOn) {
-    var imgOff = "https://www.iconsdb.com/icons/preview/red/button-off-xxl.png";
-    var imgOn = "https://www.iconsdb.com/icons/preview/green/button-on-xxl.png";
+    var imgOff = "off1.png";
+    var imgOn = "on1.png";
     
     var imgElement = document.getElementById(imageId);
     imgElement.src = turnOn ? imgOn : imgOff;
