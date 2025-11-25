@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" draggable="false">
         <header>
             <h1>Belize Districts</h1>
             <p class="subtitle">Toggle districts on/off to see them highlighted on the map</p>
         </header>
         
         <div class="content">
-            <div class="map-container">
+            <div class="map-container" draggable="false">
                 <div class="map-wrapper">
                     <img src="Country.png" alt="Map of Belize" class="belize-map" id="mainMap">
                     
@@ -28,44 +28,44 @@
                 </div>
             </div>
             
-       <div class="controls-container">
+       <div class="controls-container" draggable="false">
     <h2>District Controls</h2>
     <p>Click any district to select it. Only one district can be visible at a time.</p>
     <p>Click the same district again to deselect it.</p>
     
     <div class="district-controls">
-        <div class="district-toggle" onclick="toggleDistrict('Cayo')">
+        <div class="district-toggle" onclick="toggleDistrict('Cayo')" draggable="false">
             <img id="toggleCayo" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
             <span class="district-name">Cayo District</span>
         </div>
         
-        <div class="district-toggle" onclick="toggleDistrict('OrangeWalk')">
+        <div class="district-toggle" onclick="toggleDistrict('OrangeWalk')" draggable="false">
             <img id="toggleOrangeWalk" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
             <span class="district-name">Orange Walk District</span>
         </div>
         
-        <div class="district-toggle" onclick="toggleDistrict('Toledo')">
+        <div class="district-toggle" onclick="toggleDistrict('Toledo')" draggable="false">
             <img id="toggleToledo" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
             <span class="district-name">Toledo District</span>
         </div>
         
-        <div class="district-toggle" onclick="toggleDistrict('Corozal')">
+        <div class="district-toggle" onclick="toggleDistrict('Corozal')" draggable="false">
             <img id="toggleCorozal" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
             <span class="district-name">Corozal District</span>
         </div>
         
-        <div class="district-toggle" onclick="toggleDistrict('StannCreek')">
+        <div class="district-toggle" onclick="toggleDistrict('StannCreek')" draggable="false">
             <img id="toggleStannCreek" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
             <span class="district-name">Stann Creek District</span>
         </div>
         
-        <div class="district-toggle" onclick="toggleDistrict('Belize')">
+        <div class="district-toggle" onclick="toggleDistrict('Belize')"draggable="false">
             <img id="toggleBelize" src="https://www.iconsdb.com/icons/preview/red/button-off-xxl.png" class="toggle-button">
             <span class="district-name">Belize District</span>
         </div>
     </div>
     
-    <button onclick="resetAllDistricts()" class="reset-button">
+    <button onclick="resetAllDistricts()" class="reset-button" draggable="false">
         Deselect All Districts
     </button>
 </div>
